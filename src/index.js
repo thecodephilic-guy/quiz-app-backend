@@ -4,7 +4,7 @@ import postgres from "postgres";
 import express from "express";
 import { errorHandler } from "./middleware/error.js";
 import authRoutes from "./routes/authRoutes.js";
-// import quizRoutes from "./routes/quizRoutes.js";
+import quizRoutes from "./routes/quizRoutes.js";
 // import submissionRoutes from "./routes/submissionRoutes.js";
 
 dotenv.config({path: "./.env"});  // Load environment variables
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 }) //this is just to check if the server responds or not
 
 app.use("/api/auth", authRoutes);
-// app.use("/api/quizzes", quizRoutes);
+app.use("/api/quizzes", quizRoutes);
 // app.use("/api/submissions", submissionRoutes);
 
 

@@ -13,6 +13,10 @@ export const verifyToken = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
+
+    if (req.body.userId && req.body.userId !== decoded.userId) {
+      return res.status(403).json({ message: "User ID in the request body doesn't match the token's user ID" });
+    }
   } catch (err) {
     return res.status(401).send('Invalid Token');
   }

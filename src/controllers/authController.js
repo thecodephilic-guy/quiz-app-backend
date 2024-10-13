@@ -1,5 +1,3 @@
-//this file will be interacting with the databse so need to make sure it imports it
-//first take all the inputs from client then test the route if it works:
 import dotenv from "dotenv";
 import { users } from "../models/user.js";
 import bcrypt from "bcrypt";
